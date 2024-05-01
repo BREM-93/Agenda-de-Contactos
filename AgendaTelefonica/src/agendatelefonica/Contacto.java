@@ -44,16 +44,6 @@ public class Contacto {
         this.telefono = telefono;
     }
     
-    
-    //Metodo que comprobara que no hayan contactos con el mismo nombre
-    public boolean equals(Contacto contacto){
-    
-        if(nombre.trim().equalsIgnoreCase(contacto.getNombre().trim())){//trim borrara todos los espacios en blanco en la lista de contactos
-            return true;
-        }
-        return false;
-    }
-
 
     @Override
     public String toString() {
