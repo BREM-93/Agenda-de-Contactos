@@ -1,18 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package agendatelefonica;
 
-/**
- *
- * @author HP
- */
 public class Agenda {
     
     private Contacto contactos[];
 
-    //Tamaño de l agenda
+    //Tamaño de la agenda
     public Agenda() {
         contactos = new Contacto[10];
     }
@@ -27,6 +19,10 @@ public class Agenda {
         boolean registrado = false;
         boolean nombreExistente = false;
 
+        if(AgendaLlena()){
+            System.out.println("\nLa agenda esta llena");
+        }
+
     for(int i = 0; i < contactos.length && !registrado; i++){
         if(contactos[i] == null){
             contactos[i] = contacto;
@@ -34,6 +30,9 @@ public class Agenda {
         }
         else if(contactos[i].getNombre().equals(contacto.getNombre())) {
             nombreExistente = true;
+        }
+        else if(AgendaLlena()){
+            System.out.println("\nLa agenda esta llena");
         }
     }
 
@@ -99,7 +98,6 @@ public class Agenda {
         boolean encontrado = false;
         for(int i=0;i<contactos.length && !encontrado; i++){
             if(contactos[i] !=null && contactos[i].getNombre().trim().equalsIgnoreCase(nombre.trim())){
-                //Pepe, Mario, Andres
                 System.out.println("\nContacto encontrado, su telefono es : " + contactos[i].getTelefono());
                 encontrado = true;
             }
@@ -115,7 +113,6 @@ public class Agenda {
         boolean eliminado = false;
         for(int i=0;i<contactos.length && !eliminado;i++){
             if(contactos[i] !=null && contactos[i].equals(contacto)){
-                //Elimina nombre + telefono
                 contactos[i] = null;
                 eliminado = true;
             }
@@ -129,13 +126,13 @@ public class Agenda {
     }
     
     
-    
-        public void vaciarContactos() {
-    for (int i = 0; i < contactos.length; i++) {
-        contactos[i] = null;
+    //Metodo para vaciar contactos
+    public void vaciarContactos() {
+        for (int i = 0; i < contactos.length; i++) {
+             contactos[i] = null;
+        }
+        System.out.println("\nLa lista de contactos ha sido vaciada.");
     }
-    System.out.println("\nLa lista de contactos ha sido vaciada.");
-}
     
     
     /*public void modificarContacto(String nombreAnterior, String nuevoNombre, String nuevoTelefono) {
