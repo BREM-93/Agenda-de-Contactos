@@ -84,7 +84,7 @@ public class AgendaTelefonica {
                     
                 // Vaciar lista de contactos    
                 case 6:
-                     System.out.println("\n¿Está seguro que desea vaciar la lista de contactos? (Sí/No)");
+                     System.out.println("\n¿Está seguro que desea vaciar la lista de contactos? (Si/No)");
                      String confirmacion = teclado.next();
 
                 if (confirmacion.equalsIgnoreCase("Si")) {
@@ -103,6 +103,6 @@ public class AgendaTelefonica {
                     break;
             }    
         }
-        while(opcion !=9);
+        while(opcion !=7);
     }  
 }
